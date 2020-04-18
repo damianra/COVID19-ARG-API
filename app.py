@@ -5,7 +5,7 @@ from view import AllData, Date, DateRange
 
 # Create flask application and API rest
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'asdaskmdoqwdifnxcmdmqwopomfeo13403'
+app.config['SECRET_KEY'] = 'SECRET KEY'
 app.config['JSON_SORT_KEYS'] = False
 api = Api(app, prefix="/api/v1")
 
