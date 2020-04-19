@@ -35,12 +35,14 @@ class Argentina(Base):
             'date': self.date,
             'cases': self.cases,
             'deaths': self.deaths,
+            'recovered': self.recovered,
             'therapy': self.terapy,
             'testsNegative': self.testsNegative,
             'tests': self.tests,
             'discardedNegatives': self.discardedNegatives,
             'dailyCases': self.dailyCases,
             'dailyTestNegative': self.dailyTestNegative,
+            'imported': self.imported,
             'contactCase': self.contactCase,
             'communityTransmission': self.communitary_Transmission
         }
