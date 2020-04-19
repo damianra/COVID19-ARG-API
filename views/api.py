@@ -1,10 +1,10 @@
 from flask import jsonify
-
+import pandas as pd
 from flask_restful import Resource, reqparse
 # Models
 from sqlalchemy import and_
 
-from models import Session, Argentina
+from models.models import Session, Argentina
 
 
 class AllData(Resource):
@@ -54,3 +54,11 @@ class DateRange(Resource):
             'data': [result.serialized for result in arg],
             'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
         })
+
+
+class DatosProvincias(Resource):
+    def get(self):
+        html = pd.read_html('https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_Argentina')
+        dataframe = pd.DataFrame(html[-1])
+        dic = dataframe.to_dict()
+        return jsonify(dic)

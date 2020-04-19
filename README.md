@@ -21,6 +21,6 @@ Seguiremos trabajando para poder mantenerla actualizada. Los informes oficiales 
 https://www.argentina.gob.ar/coronavirus/informe-diario
 Tambien se usaron datasets ofrecidos por otras personas que tambien se tomaron el trabajo de hacer un seguimiento.
 
-Desarrolladores:
-Juan Colombo: https://www.linkedin.com/in/juan-carlos-colombo-336642152/
-Damian Ramirez: https://www.linkedin.com/in/damian-ramirez-677488172
+Desarrolladores:<br>
+Juan Colombo: https://www.linkedin.com/in/juan-carlos-colombo-336642152/<br>
+Damian Ramirez: https://www.linkedin.com/in/damian-ramirez-677488172<br>

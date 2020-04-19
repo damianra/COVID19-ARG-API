@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block contenedor %}
+<header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Ultima actualización</h1>
+      <h2>Fecha: {{ ud.fecha | safe}}</h2>
+      <p class="lead">Casos: {{ ud.casos | safe }}</p>
+      <p class="lead">Muertes: {{ ud.muertes | safe }}</p>
+      <p class="lead">Recuperados: {{ ud.recuperados | safe }}</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto" id="plot"></div>
+
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+         <div class="col-lg-8 mx-auto" id="plot2"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+         <div class="col-lg-8 mx-auto" id="plot3"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+         <div class="col-lg-8 mx-auto" id="plot4"></div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+

@@ -22,8 +22,8 @@ class Argentina(Base):
     testsNegative = Column(INTEGER(11), nullable=False)
     tests = Column(INTEGER(11), nullable=False)
     discardedNegatives = Column(INTEGER(11), nullable=False)
-    dailyCases = Column(INTEGER(11), nullable=False)
     dailyTestNegative = Column(INTEGER(11), nullable=False)
+    dailyCases = Column(INTEGER(11), nullable=False)
     imported = Column(INTEGER(11), nullable=False)
     contactCase = Column(INTEGER(11), nullable=False)
     communitary_Transmission = Column('communitary Transmission', INTEGER(11), nullable=False)
@@ -40,9 +40,17 @@ class Argentina(Base):
             'testsNegative': self.testsNegative,
             'tests': self.tests,
             'discardedNegatives': self.discardedNegatives,
-            'dailyCases': self.dailyCases,
             'dailyTestNegative': self.dailyTestNegative,
+            'dailyCases': self.dailyCases,
             'imported': self.imported,
             'contactCase': self.contactCase,
             'communityTransmission': self.communitary_Transmission
         }
+
+
+class User(Base):
+    __tablename__ = 'users'
+
+    UserID = Column(INTEGER(11), primary_key=True)
+    Name = Column(String(30), nullable=False, unique=True)
+    _pass = Column('pass', String(50), nullable=False)
