@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block contenedor %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+  <title>CodVid - 19 </title>
+</head>
+
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+
+<section>
+<div class="container">
+<form action="/update" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputFecha">Fecha</label>
+      <input type="text" name="fecha" value="{{case.date}}" class="form-control"  id="inputFecha" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputCasos">Casos</label>
+      <input type="number" name="casos" value="{{case.cases}}" class="form-control" id="inputCasos" required>
+
+    </div>
+     <div class="form-group col-md-3">
+      <label for="inputMuertes">Muertes</label>
+      <input type="number" name="muertes" value="{{case.deaths}}" class="form-control" id="inputMuertes" required>
+
+    </div>
+        <div class="form-group col-md-3">
+      <label for="inputRecuperados">Recuperados</label>
+      <input type="number" name="recuperados" value="{{case.recovered}}" class="form-control" id="inputRecuperados" required>
+
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputTerapia">Terapia</label>
+      <input type="number" name="terapia" value="{{case.terapy}}" class="form-control"  id="inputTerapia" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputTestsNegatives">Tests Negativos</label>
+      <input type="number" name="testsNegatives" value="{{case.testsNegative}}" class="form-control" id="inputTestsNegatives" required>
+
+    </div>
+     <div class="form-group col-md-3">
+      <label for="inputTests">Tests</label>
+      <input type="number" name="tests" value="{{case.tests}}" class="form-control" id="inputTests" required>
+
+    </div>
+        <div class="form-group col-md-3">
+      <label for="inputNegativosDescarte">Negativos Descartados</label>
+      <input type="number" name="negativosDescarte" value="{{case.discardedNegatives}}" class="form-control" id="inputNegativosDescarte" required>
+
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputCasosDiarios">Casos Diarios</label>
+      <input type="number" name="casosDiarios" value="{{case.dailyCases}}" class="form-control" id="inputCasosDiarios" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="inputTestNegativosDiarios">Tests Negativos Diarios</label>
+      <input type="number" name="testNegativosDiarios" value="{{case.dailyTestNegative}}" class="form-control" id="inputTestNegativosDiarios" required>
+
+    </div>
+     <div class="form-group col-md-3">
+      <label for="inputCasosImportados">Casos Importados</label>
+      <input type="number" name="CasosImportados" value="{{case.imported}}" class="form-control" id="inputCasosImportados" required>
+
+    </div>
+        <div class="form-group col-md-3">
+      <label for="inputContactoEstrecho">Casos de contacto Estrecho</label>
+      <input type="number" name="contactoEstrecho" value="{{case.contactCase}}" class="form-control" id="inputContactoEstrecho" required>
+
+    </div>
+
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputTrasmisionComunitaria">Tramision Comunitaria</label>
+      <input type="number" name="trasmisionComunitaria" value="{{case.communitary_Transmission}}" class="form-control"  id="inputTrasmisionComunitaria" required>
+    </div>
+  </div>
+
+
+  <button id="send" type="submit" class="btn btn-primary">Actualizar</button>
+
+</form><br>
+
+</div>
+
+</section>
+
+{% endblock %}

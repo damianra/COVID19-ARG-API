@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block contenedor %}
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Documentacíon</h1>
+    </div>
+  </header>
+
+  <section id="about">
+        <div class="container">
+<h3>Data</h3>
+          <br>
+<p>API desarrollada en flask para manipular base de datos MySQL con los datos de los informes oficiales del COVID19 del Ministerio de Salud Argentino.
+  <br>
+  <br>
+  <a target="_blank" href="https://colab.research.google.com/drive/1K1ilzDK5F60_KeJ2aifrFOvBw9337T8Q">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+<h3>Uso de la API</h3>
+  <br>
+  La API tiene 3 endpoints:
+  <br>
+  <br>
+<ul>
+<li>
+  Rango entre fechas, ejemplo: http://damianra.pythonanywhere.com/api/v1/range?startdate=2020-03-10&enddate=2020-04-10
+  </li>
+  <br>
+  <li>
+ Fecha especifica, ejemplo: http://damianra.pythonanywhere.com/api/v1/date?date=2020-03-25
+  </li>
+  <br>
+  <li>
+Todos los datos: http://damianra.pythonanywhere.com/api/v1/alldata
+ </li>
+ </ul>
+  <br>
+ <h3>Fuente</h3>
+ <br>
+ Los informes oficiales en PDF se pueden descargar de: <a target="_blank"href="https://www.argentina.gob.ar/coronavirus/informe-diario">https://www.argentina.gob.ar/coronavirus/informe-diario</a>
+          <br>
+          Tambien se usaron datasets ofrecidos por otras personas que tambien se tomaron el trabajo de hacer un seguimiento.
+  <br>
+  <br>
+ <h3>Desarrolladores</h3>
+ <br>
+  Juan Colombo: <a target="_blank" href="https://www.linkedin.com/in/juan-carlos-colombo-336642152/">Linkdin</a>
+  <br>
+  Damian Ramirez: <a target="_blank" href="https://www.linkedin.com/in/damian-ramirez-677488172">Linkdin</a>
+  </p>
+ </div>
+</section>
+
+
+{% endblock %}
