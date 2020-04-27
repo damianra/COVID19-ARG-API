@@ -8,7 +8,11 @@ from flask_cors import CORS
 # Create flask application and API rest
 app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
+
 app.config['SECRET_KEY'] = 'SECRET_KEY'
+
+app.config['SECRET_KEY'] = 'asdaskmdoqwdifnxcmdmqwopomfeo13403'
+
 app.config['JSON_SORT_KEYS'] = False
 api = Api(app, prefix="/api/v1")
 
