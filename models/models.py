@@ -46,6 +46,28 @@ class Argentina(Base):
             'contactCase': self.contactCase,
             'communityTransmission': self.communitary_Transmission
         }
+        
+    
+        
+class Provincia(Base):
+    __tablename__ = 'provincias'
+
+    id = Column(INTEGER(11), primary_key=True)
+    fecha = Column(String(100), nullable=False)
+    provincia = Column(String(200), nullable=False)
+    casos = Column(INTEGER(11), nullable=False)
+    muertes = Column(INTEGER(11), nullable=False)
+
+    @property
+    def serialized(self):
+        return {
+            'id': self.id,
+            'date': self.fecha,
+            'province': self.provincia,
+            'cases': self.casos,
+            'deaths': self.muertes
+        }
+
 
 
 class User(Base):

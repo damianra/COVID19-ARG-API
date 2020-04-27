@@ -19,23 +19,39 @@
 </a>
 <h3>Uso de la API</h3>
   <br>
-  La API tiene 3 endpoints:
+  La API tiene 6 endpoints:
   <br>
   <br>
 <ul>
 <li>
-  Rango entre fechas, ejemplo: http://damianra.pythonanywhere.com/api/v1/range?startdate=2020-03-10&enddate=2020-04-10
+    Rango entre fechas, ejemplo: <a href="http://damianra.pythonanywhere.com/api/v1/range?startdate=2020-03-10&enddate=2020-04-10">http://damianra.pythonanywhere.com/api/v1/range?startdate=2020-03-10&enddate=2020-04-10</a>
   </li>
   <br>
   <li>
- Fecha especifica, ejemplo: http://damianra.pythonanywhere.com/api/v1/date?date=2020-03-25
+ Fecha especifica, ejemplo: <a href="http://damianra.pythonanywhere.com/api/v1/date?date=2020-03-25">http://damianra.pythonanywhere.com/api/v1/date?date=2020-03-25</a>
   </li>
   <br>
   <li>
-Todos los datos: http://damianra.pythonanywhere.com/api/v1/alldata
+Todos los datos: <a href="http://damianra.pythonanywhere.com/api/v1/alldata">http://damianra.pythonanywhere.com/api/v1/alldata</a>
+ </li>
+    <br>
+    <li>
+Totales del dia por provincia (Wikipedia): <a href="http://damianra.pythonanywhere.com/api/v1/provinces">http://damianra.pythonanywhere.com/api/v1/provinces</a>
+ </li>
+        <br>
+    <li>
+Totales por provincia (Todo el dataset): <a href="http://damianra.pythonanywhere.com/api/v1/provdata">http://damianra.pythonanywhere.com/api/v1/provdata</a>
+ </li>
+            <br>
+    <li>
+Totales por provincia especifica: <a href="http://damianra.pythonanywhere.com/api/v1/prov?province=Tierra%20del%20Fuego%20e%20Islas%20Malvinas">http://damianra.pythonanywhere.com/api/v1/prov?province=Tierra%20del%20Fuego%20e%20Islas%20Malvinas</a>
+        ("http://damianra.pythonanywhere.com/api/v1/prov?province=" + "Nombre de Provincia" (con mayusculas y espacios))
  </li>
  </ul>
+            <br>
+            Nota: El dataset de totales por provincia comienza desde el 29/03/2020 dia en que empezaron a mostrar estos datos recolectados
   <br>
+            <br>
  <h3>Fuente</h3>
  <br>
  Los informes oficiales en PDF se pueden descargar de: <a target="_blank"href="https://www.argentina.gob.ar/coronavirus/informe-diario">https://www.argentina.gob.ar/coronavirus/informe-diario</a>
@@ -49,7 +65,18 @@ Todos los datos: http://damianra.pythonanywhere.com/api/v1/alldata
   <br>
   Damian Ramirez: <a target="_blank" href="https://www.linkedin.com/in/damian-ramirez-677488172">Linkdin</a>
   </p>
+            <br>
+            <br>
+            <div class="card text-white bg-warning mb-1">
+  <div class="card-header"><b>Warning:</b></div>
+  <div class="card-body">
+    <p class="card-text">La consulta puede responder "Internal Server Error", si esto sucede vuelva a realizar la consulta o recargue la ventana</p>
+  </div>
+
+            </div>
  </div>
+      <br>
+
 </section>
 
 

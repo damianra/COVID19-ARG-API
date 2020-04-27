@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block contenedor %}
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Dataset COVID19 ARG API</h1>
+    </div>
+  </header>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Fecha</th>
+      <th scope="col">Casos Con.</th>
+      <th scope="col">Muertes</th>
+        <th scope="col">Recuperados</th>
+        <th scope="col">Terapia</th>
+        <th scope="col">Test Negativos</th>
+        <th scope="col">Test Totales</th>
+      <th scope="col">Desc. Epid.</th>
+        <th scope="col">Test(-) xDia</th>
+      <th scope="col">CasosDelDia</th>
+        <th scope="col">Importados</th>
+      <th scope="col">Contacto Estr.</th>
+        <th scope="col">Transmision Com.</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for d in list %}
+            <tr>
+              <th scope="row">{{ d['date'] }}</th>
+              <td>{{ d['cases'] }}</td>
+              <td>{{d['deaths']}}</td>
+              <td>{{d['recovered']}}</td>
+              <td>{{d['therapy']}}</td>
+              <td>{{d['testsNegative']}}</td>
+              <td>{{d['tests']}}</td>
+              <td>{{d['discardedNegatives']}}</td>
+              <td>{{d['dailyTestNegative']}}</td>
+              <td>{{d['dailyCases']}}</td>
+              <td>{{d['imported']}}</td>
+              <td>{{d['contactCase']}}</td>
+              <td>{{d['communityTransmission']}}</td>
+            </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
