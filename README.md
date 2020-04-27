@@ -43,7 +43,4 @@ tomaron el trabajo de hacer un seguimiento. \
  Damian Ramirez:
 [Linkdin](https://www.linkedin.com/in/damian-ramirez-677488172)
 
-Desarrolladores:<br>
-Juan Colombo: https://www.linkedin.com/in/juan-carlos-colombo-336642152/<br>
-Damian Ramirez: https://www.linkedin.com/in/damian-ramirez-677488172<br>
 
