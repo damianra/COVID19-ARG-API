@@ -2,7 +2,7 @@ from flask import Flask, request, session, flash
 from flask import render_template
 from flask_restful import Api
 from views.api import AllData, Date, DateRange, DatosProvincias
-from views.web import log, newdata, ultimodato, deleteCase, updatedata, lista, edit
+from views.web import log, newdata, ultimodato, deleteCase, updatedata, lista, edit, listaData
 from flask_cors import CORS
 
 # Create flask application and API rest
@@ -162,6 +162,13 @@ def update():
 
     except ValueError:
         return "FAIL"
+
+
+@app.route('/dataset')
+def dataset():
+    data = listaData()
+
+    return render_template('dataset.html', list=data)
 
 
 if __name__ == '__main__':

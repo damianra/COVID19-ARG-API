@@ -58,7 +58,15 @@ class DateRange(Resource):
 
 class DatosProvincias(Resource):
     def get(self):
+        listaProvincias = []
+
         html = pd.read_html('https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_Argentina')
-        dataframe = pd.DataFrame(html[-1])
-        dic = dataframe.to_dict()
-        return jsonify(dic)
+        dataframe = pd.DataFrame(html[-2])
+        for index, row in dataframe.iloc[:-1].iterrows():
+            listaProvincias.append(
+                {'Provincia': row['Provincias'], 'Casos Confirmados':row['Casosconfirmados'], 'Muertes': row['Muertesconfirmadas'], 
+                 'Recuperados': row['Recuperacionesconfirmadas[n 1]\u200b'],
+                 'Letalidad%': row['Letalidad %'],
+                 'Poblacion2020': row['Población(proy. 2020)'], 'Prevalencia': row['Prevalencia(casos cada M de hab)']})
+
+        return jsonify({'data': listaProvincias, 'disclaimer': 'Los datos son obtenidos desde Wikipedia'})
