@@ -1,4 +1,4 @@
-# COVID19FlaskAPI
+# COVID19-ARG-API
 ### Data
 
 API desarrollada en flask para manipular base de datos MySQL con los datos de los informes oficiales del COVID19 del Ministerio de Salud Argentino.
