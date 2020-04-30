@@ -88,8 +88,42 @@ class DatosWiki(Resource):
             'data': [result.serialized for result in provData],
             'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
         })
+    
+    
+    
+#retorna casos, recibe provincia y un rango de fechas
+class CasosxProvinciasxFecha(Resource):
+    def get(self):
+        parser = reqparse.RequestParser()
+        #data obtenida por get
+        parser.add_argument('province', help='This field cannot be blank', required=True)
+        parser.add_argument('startdate')
+        parser.add_argument('enddate')
+        data = parser.parse_args()
+        prov = data['province']
+        startdate = data['startdate']
+        enddate = data['enddate']
+        session = Session()
+        #consulta en bbdd tabla provincia,
+        #filtra por fecha inicial y fecha final
+        provData = session.query(Provincia).filter(and_(
+            Provincia.provincia == prov,
+            Provincia.fecha >= startdate,
+            Provincia.fecha <= enddate
+        )).all()
+
+        session.close()
+
+        return jsonify({
+            'data': [result.serialized for result in provData],
+            'province': data['province'],
+            'startdate': data['startdate'],
+            'enddate': data['enddate'],
+            'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
+        })
 
 
+    
 class DatosProvincias(Resource):
     def get(self):
         # Open session in database
