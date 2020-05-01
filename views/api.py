@@ -7,6 +7,21 @@ from sqlalchemy import and_
 from models.models import Session, Argentina, Provincia
 
 
+class EndData(Resource):
+    def get(self):
+        # Open session in database
+        session = Session()
+        # Consult DB Argentina table and obtain all data
+        ud = session.query(Argentina).order_by(Argentina.date.desc()).first()
+        session.close()
+        dic = {'fecha': ud.date, 'casos': ud.cases, 'muertes': ud.deaths, 'recuperados': ud.recovered}
+        # Return all data in JSON
+        return jsonify({
+            'data': dic,
+            'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
+        })
+
+
 class AllData(Resource):
     def get(self):
         # Open session in database
