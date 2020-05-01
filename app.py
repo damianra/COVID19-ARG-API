@@ -1,7 +1,7 @@
 from flask import Flask, request, session, flash
 from flask import render_template
 from flask_restful import Api
-from views.api import AllData, Date, DateRange, DatosProvincias, CasosxProvincias, CasosxProvinciasxFecha, DatosWiki
+from views.api import AllData, Date, DateRange, DatosProvincias, CasosxProvincias, CasosxProvinciasxFecha, DatosWiki, EndData
 from views.web import log, newdata, ultimodato, deleteCase, updatedata, lista, edit, listaData
 from flask_cors import CORS
 
@@ -12,12 +12,14 @@ app.config['SECRET_KEY'] = 'asdaskmdoqwdifnxcmdmqwopomfeo13403'
 app.config['JSON_SORT_KEYS'] = False
 api = Api(app, prefix="/api/v1")
 
+
+api.add_resource(EndData, '/ult-actualization')
 api.add_resource(AllData, '/alldata')
 api.add_resource(Date, '/date')
 api.add_resource(DateRange, '/range')
 api.add_resource(DatosWiki, '/wikidata')
-api.add_resource(CasosxProvincias, '/prov')
-api.add_resource(DatosProvincias, '/provdata')
+api.add_resource(CasosxProvincias, '/province')
+api.add_resource(DatosProvincias, '/provincesdata')
 api.add_resource(CasosxProvinciasxFecha, '/provxfecha')
 
 

@@ -7,6 +7,21 @@ from sqlalchemy import and_
 from models.models import Session, Argentina, Provincia
 
 
+class EndData(Resource):
+    def get(self):
+        # Open session in database
+        session = Session()
+        # Consult DB Argentina table and obtain all data
+        ud = session.query(Argentina).order_by(Argentina.date.desc()).first()
+        session.close()
+        dic = {'fecha': ud.date, 'casos': ud.cases, 'muertes': ud.deaths, 'recuperados': ud.recovered}
+        # Return all data in JSON
+        return jsonify({
+            'data': dic,
+            'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
+        })
+
+
 class AllData(Resource):
     def get(self):
         # Open session in database
@@ -74,18 +89,27 @@ class DatosWiki(Resource):
         
  class CasosxProvincias(Resource):
     def get(self):
+        urlprovincias = 'https://docs.google.com/spreadsheets/d/18yJBGAp5wVnJtQ7vg60J-eULbd64OzBvYHTdnxVgnr8/export?format=csv&id=16-bnsDdmmgtSxdWbVMboIHo5FRuz76DBxsz_BbsEVWA'
+        data = pd.read_csv(urlprovincias)
+        listaProvincia = []
         parser = reqparse.RequestParser()
-        parser.add_argument('province', help='This field cannot be blank', required=True)
-        # Open session in database
-        data = parser.parse_args()
-        prov = data['province']
-        session = Session()
-        # Consult DB Argentina table and obtain all data
-        provData = session.query(Provincia).filter(Provincia.provincia == prov).all()
-        session.close()
-        # Return all data in JSON
+        parser.add_argument('prov', help='This field cannot be blank', required=True)
+        arg = parser.parse_args()
+        prov = data.loc[:,'province'] == arg['prov']
+        df = data.loc[prov]
+
+        for index, row in df.iterrows():
+            listaProvincia.append(
+                {
+                    'Date': row['date'],
+                    'Province': row['province'],
+                    'Cases': row['cases'],
+                    'Deaths': row['deaths']
+                }
+            )
+
         return jsonify({
-            'data': [result.serialized for result in provData],
+            'data': listaProvincia,
             'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
         })
     
@@ -126,13 +150,19 @@ class CasosxProvinciasxFecha(Resource):
     
 class DatosProvincias(Resource):
     def get(self):
-        # Open session in database
-        session = Session()
-        # Consult DB Argentina table and obtain all data
-        provData = session.query(Provincia).all()
-        session.close()
-        # Return all data in JSON
+        urlprovincias = 'https://docs.google.com/spreadsheets/d/18yJBGAp5wVnJtQ7vg60J-eULbd64OzBvYHTdnxVgnr8/export?format=csv&id=16-bnsDdmmgtSxdWbVMboIHo5FRuz76DBxsz_BbsEVWA'
+        df = pd.read_csv(urlprovincias)
+        listaProvincias = []
+        for index, row in df.iterrows():
+            listaProvincias.append(
+                {
+                    'Date': row['date'],
+                    'Province': row['province'],
+                    'Cases': row['cases'],
+                    'Deaths': row['deaths']
+                }
+            )
         return jsonify({
-            'data': [result.serialized for result in provData],
+            'data': listaProvincias,
             'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
         })
