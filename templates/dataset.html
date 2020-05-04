@@ -24,16 +24,16 @@
     </tr>
   </thead>
   <tbody>
-      {% for d in list %}
+     {% for d in list %}
             <tr>
               <th scope="row">{{ d['date'] }}</th>
               <td>{{ d['cases'] }}</td>
               <td>{{d['deaths']}}</td>
               <td>{{d['recovered']}}</td>
               <td>{{d['therapy']}}</td>
-              <td>{{d['testsNegative']}}</td>
-              <td>{{d['tests']}}</td>
-              <td>{{d['discardedNegatives']}}</td>
+              <td>{{d['totalTestsNegative']}}</td>
+              <td>{{d['totalTests']}}</td>
+              <td>{{d['discardedNegative']}}</td>
               <td>{{d['dailyTestNegative']}}</td>
               <td>{{d['dailyCases']}}</td>
               <td>{{d['imported']}}</td>

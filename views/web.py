@@ -1,7 +1,6 @@
 # Encrypt library
 import bcrypt
 import pandas as pd
-from sqlalchemy import and_
 
 from models.models import Session, User, Argentina
 semilla = bcrypt.gensalt()
@@ -37,10 +36,13 @@ def newdata(dic):
 
 
 def ultimodato():
-    session = Session()
-    udato = session.query(Argentina).order_by(Argentina.date.desc()).first()
-    session.close()
-    return udato
+    url = 'https://docs.google.com/spreadsheets/d/1U-dOOYAxHqFUOH1-w1uPSlce8pw_B79yDp0gEIBJJpM/export?format=csv'
+    data = pd.read_csv(url)
+    df = data.tail(1)
+    dic = []
+    for index, row in df.iterrows():
+        dic = {'fecha': row['Fecha'], 'casos': row['Casos'], 'muertes': row['Fallecidos'], 'recuperados': row['Recuperados']}
+    return dic
 
 
 def updatedata(dic, id):
@@ -88,9 +90,27 @@ def listaProvincias():
 
 
 def listaData():
-    session = Session()
-    # Consult DB Argentina table and obtain all data
-    argData = session.query(Argentina).all()
-    session.close()
-    data = [result.serialized for result in argData]
-    return data
+    url = 'https://docs.google.com/spreadsheets/d/1U-dOOYAxHqFUOH1-w1uPSlce8pw_B79yDp0gEIBJJpM/export?format=csv'
+    data = pd.read_csv(url)
+    lista = []
+
+    for index, row in data.iterrows():
+        lista.append(
+            {
+                'date': row['Fecha'],
+                'cases': row['Casos'],
+                'deaths': row['Fallecidos'],
+                'recovered': row['Recuperados'],
+                'therapy': row['Terapia'],
+                'totalTestsNegative': row['Negativos'],
+                'totalTests': row['Totales'],
+                'discardedNegative': row['Descartados por investigación epidemiológica'],
+                'dailyTestNegative': row['Tests negativos'],
+                'dailyCases': row['Total positivos'],
+                'imported': row['Importados.1'],
+                'contactCase': row['Contacto estrecho / Conglomerado.1'],
+                'communityTransmission': row['Transmisión Comunitaria.1']
+            }
+        )
+    return lista
+
