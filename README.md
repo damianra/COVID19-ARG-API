@@ -26,8 +26,8 @@ Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.
 -   Totales por provincia especifica: http://damianra.pythonanywhere.com/api/v1/province?prov=Tierra%20del%20Fuego%20e%20Islas%20Malvinas 
 ("http://damianra.pythonanywhere.com/api/v1/province?prov=" + "Nombre de Provincia" (con mayusculas y espacios)) 
 
-Nota: El dataset de totales por provincia comienza desde el 29/03/2020 dia en que empezaron a mostrar estos datos recolectados
-
+Nota1: El dataset de totales por provincia comienza desde el 29/03/2020 dia en que empezaron a mostrar estos datos recolectados.
+Nota2: Con respecto al dataset, decidimos utilizar el seguimiento que comparte <a href="https://twitter.com/jorgeluisaliaga">Jorge Aliaga</a>, es mas completo de lo que veníamos recolectando y tiene mucha información. <a href="https://docs.google.com/spreadsheets/d/1M7uDgWSfy6z1MNbC9FP6jTNgvY7XchJ0m-BfW88SKtQ/edit?usp=sharing">link</a>
 
 
 Seguiremos trabajando para poder mantenerla actualizada. Los informes oficiales en PDF se pueden descargar de:
