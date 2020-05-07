@@ -29,9 +29,9 @@ Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.
 
 Nota1: El dataset de totales por provincia comienza desde el 29/03/2020 dia en que empezaron a mostrar estos datos recolectados.<br>
 Nota2: Con respecto al dataset, decidimos utilizar el seguimiento que comparte <a href="https://twitter.com/jorgeluisaliaga">Jorge Aliaga</a>, es mas completo de lo que veníamos recolectando y tiene mucha información. <a href="https://docs.google.com/spreadsheets/d/1M7uDgWSfy6z1MNbC9FP6jTNgvY7XchJ0m-BfW88SKtQ/edit?usp=sharing">link</a>
-<br>
+<br><br>
 Todos los datos de la API: <a href="http://damianra.pythonanywhere.com/dataset">Dataset</a>
-<br>
+<br><br>
 Seguiremos trabajando para poder mantenerla actualizada. Los informes oficiales en PDF se pueden descargar de:
 https://www.argentina.gob.ar/coronavirus/informe-diario
 Tambien se usaron datasets ofrecidos por otras personas que tambien se tomaron el trabajo de hacer un seguimiento.
