@@ -15,6 +15,8 @@ Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.
 
 ### Uso de la API
 <br>
+Repositorio <a href="https://github.com/damianra/COVID19-ARG-API">Github</a><br>
+  <br>
  La API tiene 6 endpoints:
 
 
