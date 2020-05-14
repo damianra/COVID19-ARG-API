@@ -1,4 +1,8 @@
+
 # COVID19-ARG-API
+
+[<img src="https://img.shields.io/badge/Telegram-@CovidArg-blue.svg?logo=telegram">](https://t.me/joinchat/RsY-vlkIJwSo5xAJQldOPw)
+
 ### Data
 
 API desarrollada en flask para manipular base de datos MySQL con los datos de los informes oficiales del COVID19 del Ministerio de Salud Argentino.
