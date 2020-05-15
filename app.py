@@ -1,7 +1,7 @@
 from flask import Flask, request, session, flash
 from flask import render_template
 from flask_restful import Api
-from views.api import AllData, Date, DateRange, DatosProvincias, CasosxProvincias, CasosxProvinciasxFecha, DatosWiki, EndData
+from views.api import AllData, Date, DateRange, DatosProvincias, CasosxProvincias, CasosxProvinciasxFecha, DatosWiki, EndData, FechasCuarentena
 from views.web import log, newdata, ultimodato, deleteCase, updatedata, lista, edit, listaData
 from flask_cors import CORS
 
@@ -21,6 +21,7 @@ api.add_resource(DatosWiki, '/wikidata')
 api.add_resource(CasosxProvincias, '/province')
 api.add_resource(DatosProvincias, '/provincesdata')
 api.add_resource(CasosxProvinciasxFecha, '/provxfecha')
+api.add_resource(FechasCuarentena, '/cuarentena')
 
 
 @app.route('/')
