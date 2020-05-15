@@ -253,3 +253,26 @@ class DatosProvincias(Resource):
             'data': listaProvincias,
             'disclaimer': 'Todos los datos fueron recolectados de los reportes diarios del ministerio de salud de Argentina https://www.argentina.gob.ar/coronavirus/informe-diario'
         })
+
+    
+    
+class FechasCuarentena(Resource):
+    def get(self):
+        urlfechas = 'https://docs.google.com/spreadsheets/d/1AnYBAwifcBsswuogSB1woZ5rtGS8pfsmaex9PeYYL68/export?format=csv'
+        df = pd.read_csv(urlfechas)
+        listaCuarentena = []
+
+        for index, row in df.iterrows():
+            listaCuarentena.append(
+                {
+                    'Fecha': row['fecha'],
+                    'Denominacion': row['denominacion'],
+                    'Hasta': row['hasta'],
+                    'Fase': row['fase']
+                }
+            )
+
+        return jsonify({
+            'data': listaCuarentena,
+            'disclaimer': 'Datos recolectados de: https://www.ambito.com/informacion-general/aislamiento/como-fueron-las-etapas-la-cuarentena-n5101244'
+        })
